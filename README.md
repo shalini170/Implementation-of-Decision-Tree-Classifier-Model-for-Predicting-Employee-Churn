@@ -8,13 +8,12 @@ To write a program to implement the Decision Tree Classifier Model for Predictin
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1.Import the standard libraries.
-2.Upload the dataset and check for any null values using .isnull() function.
-3.Import LabelEncoder and encode the dataset.
-4.Import DecisionTreeClassifier from sklearn and apply the model on the dataset.
-5.Predict the values of array.
-6.Import metrics from sklearn and calculate the accuracy of the model on the dataset. 
-7.Predict the values of array. 8.Apply to new unknown values.
+1. Import the required libraries.
+2. Upload and read the dataset.
+3. Check for any null values using the isnull() function.
+4. From sklearn.tree import DecisionTreeClassifier and use criterion as entropy.
+5. Find the accuracy of the model and predict the required values by importing the required module from sklearn.
+
 ## Program:
 ```
 /*
@@ -23,9 +22,10 @@ Developed by: Shruthi.S
 RegisterNumber:  212222220044
 */
 ```
-```
+```python
 import pandas as pd
-data=pd.read_csv("Employee.csv")
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+data=pd.read_csv("Employee_EX6.csv")
 data.head()
 data.info()
 data.isnull().sum()
@@ -43,28 +43,31 @@ from sklearn.tree import DecisionTreeClassifier
 dt=DecisionTreeClassifier(criterion="entropy")
 dt.fit(x_train,y_train)
 y_pred=dt.predict(x_test)
-from sklearn import metrics   
+from sklearn import metrics
 accuracy=metrics.accuracy_score(y_test,y_pred)
 accuracy
 dt.predict([[0.5,0.8,9,260,6,0,1,2]])
+plt.figure(figsize=(18,6))
+plot_tree(dt,feature_names=x.columns,class_names=['salary','left'],filled=True)
+plt.show()
+
 ```
+
 ## Output:
-### DATA HEAD
-![x1](https://user-images.githubusercontent.com/94154683/169513081-6f903385-3da1-4ba6-ae1e-27cb76d591a6.png)
-### DATA INFO
-![x3](https://user-images.githubusercontent.com/94154683/169513082-47b67344-6c44-4ff8-a520-8c341f312eab.png)
-### DATA ISNULL
-![x3as3](https://user-images.githubusercontent.com/94154683/169513065-14c88236-9210-487c-a477-78c487c4489a.png)
-### DATA LEFT
-![x5](https://user-images.githubusercontent.com/94154683/169513070-33d9ed74-b4f7-4e46-9966-8c60efbec5e5.png)
-### X HEAD
-![x6](https://user-images.githubusercontent.com/94154683/169513073-402a0256-0d5a-46d6-a34a-271cd223be71.png)
-### DATA FIT
-![x7](https://user-images.githubusercontent.com/94154683/169513077-04505194-c763-4523-9d17-fbff648e94dd.png)
-### ACCURACY
-![x8](https://user-images.githubusercontent.com/94154683/169513079-42266498-9323-4a5a-87d6-94ba3815d40b.png)
-### PREDICTED VALUES
-![XX](https://user-images.githubusercontent.com/94154683/169514059-120bf7f7-e57d-4726-b459-4d9a39cdfd2d.png)
+
+## HEAD() AND INFO():
+![image](https://github.com/Prasannalakshmiganesan/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/118610231/f8005b20-85c6-444d-86ef-05988de2914d)
+
+## NULL & COUNT:
+![image](https://github.com/Prasannalakshmiganesan/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/118610231/6227bcd1-239e-4610-b769-27294162049a)
+
+![image](https://github.com/Prasannalakshmiganesan/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/118610231/e26eeddb-0b03-42c5-955b-860c919822b0)
+
+## ACCURACY SCORE:
+![image](https://github.com/Prasannalakshmiganesan/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/118610231/e67d3205-ec86-4b99-956b-00b9fb923498)
+
+## DECISION TREE CLASSIFIER MODEL:
+![image](https://github.com/Prasannalakshmiganesan/Implementation-of-Decision-Tree-Classifier-Model-for-Predicting-Employee-Churn/assets/118610231/7c93ff98-b7b4-455b-aa42-d1c38c6391f2)
 
 
 ## Result:
